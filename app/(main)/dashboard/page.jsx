@@ -1,9 +1,14 @@
+import { getUserAccounts } from "@/actions/dashboard";
 import CrateAccountDrawer from "@/components/create.account.drawer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import React from "react";
+import { get } from "react-hook-form";
+import AccountCard from "./_components/accounts-card";
 
 export default async function DashboardPage() {
+  const accounts = await getUserAccounts();
+
   return (
     <div className="px-5">
       {/* Budget Progress */}
@@ -21,6 +26,11 @@ export default async function DashboardPage() {
             </CardContent>
           </Card>
         </CrateAccountDrawer>
+
+        {accounts.length > 0 &&
+          accounts?.map((account) => {
+            return <AccountCard key={account.id} account={account} />;
+          })}
       </div>
     </div>
   );

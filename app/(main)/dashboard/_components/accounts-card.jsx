@@ -48,7 +48,7 @@ export function AccountCard({ account }) {
   }, [error]);
 
   return (
-    <Link href={`/accounts/${id}`}>
+    <Link href={`/account/${id}`}>
       <Card className="hover:shadow-md transition-shadow group relative">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
           <CardTitle className="text-sm font-medium capitalize">

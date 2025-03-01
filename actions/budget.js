@@ -91,7 +91,7 @@ export async function updateBudget(amount) {
     revalidatePath("/dashboard");
     return {
       success: true,
-      data: { ...budget, amount: budget.amount.toNumber() },
+      data: { ...budget, amount: budget.amount ? budget.amount.toNumber() : 0 },
     };
   } catch (error) {
     console.error("Error updating budget:", error);
